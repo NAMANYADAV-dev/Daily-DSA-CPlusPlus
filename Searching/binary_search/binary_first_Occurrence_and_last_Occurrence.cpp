@@ -5,9 +5,9 @@
 
         int n = nums.size();
 
-        int target = 2;
+        int target = 8;
         
-        int firstOccurrence = -1 , lastOccurrence ;
+        int firstOccurrence = -1 , lastOccurrence = -1  ;
 
         for( int i = 0 ; i < n ; i ++) {
 
@@ -27,7 +27,7 @@
 
         }
 
-        std:: cout << firstOccurrence <<  " , " << lastOccurrence << std:: endl;
+        std:: cout << "[" <<  firstOccurrence <<  " , " << lastOccurrence << "]" << std:: endl;
 
 
   }
@@ -35,7 +35,7 @@
 int main () {
 
 
-        std::vector<int> nums = {1 , 2 , 2, 2, 3, 5, 6};
+        std::vector<int> nums = {5,7,7,8,8,10};
 
         firstAndLastOccurrence(nums);
 
