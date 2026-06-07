@@ -13,11 +13,15 @@ int main () {
 
     while (!nums.empty()) {
 
-          std:: cout <<nums.front() << std::endl;
+          std:: cout <<nums.back() << std::endl;
 
           nums.pop();
 
     }
+
+     
+
+
     
     return 0 ;
 }
