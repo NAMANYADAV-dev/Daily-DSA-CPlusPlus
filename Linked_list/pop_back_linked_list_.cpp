@@ -1,0 +1,187 @@
+#include<iostream>
+
+class Node{
+
+    public:
+            int data;
+            Node *next;
+    
+
+            Node(int val) {
+
+                this->data = val;
+                next = NULL; 
+
+            }
+
+
+};
+
+
+class List{
+     private:
+        Node* head;
+        Node* tail;
+    public:
+         List() {
+
+            head = NULL;
+            tail = NULL;
+
+        }
+        void push_front(int val) {
+
+                Node* newNode = new Node(val);
+            
+                if(head == NULL){
+
+                    head = tail = newNode;
+                    
+                } else {
+
+                    newNode->next = head;
+                    head = newNode;
+
+                }
+
+        }
+
+
+                void push_back(int val) {
+
+                    Node *newNode = new Node(val);
+
+                    if(head == NULL) {
+
+                            head = tail = newNode;
+
+                    }else{
+
+                            tail->next = newNode;
+
+                            tail = newNode;
+
+                    }
+
+                }
+
+
+                void display()  {
+
+                        Node* temp = head;
+                    
+                        while(temp != NULL) {
+
+                                std:: cout << temp->data << std::endl;
+                                temp = temp->next;
+
+                        }
+
+
+                }
+
+
+                int length() {
+
+                        Node *temp = head;
+                        int count = 0 ; 
+
+                        while(temp != NULL) {
+
+                            count ++;
+                            temp = temp->next;
+
+                        }
+                        return count;
+
+                } 
+
+
+                bool search(int key) {
+
+                        Node* temp = head;
+
+                      while(temp != NULL) {
+
+                            if(temp->data == key) {
+
+                                return true;
+
+                            }
+                            
+                         temp = temp->next;
+                            
+                        }
+                        
+                        return false;
+                }
+
+
+
+                void insertAtPosition(int val , int pos) {
+
+                        Node *newNode = new Node(val);
+
+                        Node *temp = head;
+
+                        for(int i = 0 ; i < pos - 1 ; i ++) {
+
+                                if(temp == NULL) {
+
+                                    std:: cout << "Position is Invalid\n";
+                                    return ;
+
+                                }
+
+                                temp = temp->next;
+
+                        }
+
+                        newNode->next = temp->next;
+
+                        temp->next = newNode;
+
+                }
+
+                void popBack() {
+
+                    Node *temp = head;
+
+                    while(temp->next->next != NULL) {
+
+                            temp = temp->next;
+
+                    }
+
+                    temp->next = NULL;
+                    delete tail;
+                    tail = temp;
+
+                }
+
+};
+
+int main () {
+
+    List ll;
+    
+    ll.push_front(229);
+    ll.push_front(6);
+    ll.push_front(29);
+    ll.push_front(9);
+
+    ll.push_back(40);
+    ll.push_back(4);
+    ll.push_back(10);
+    ll.push_back(10);
+
+    std:: cout << "Lenght is : " <<  ll.length() << std::endl;
+
+    ll.insertAtPosition(500 , 3);
+
+    ll.display();
+    ll.popBack();
+    ll.display();
+    return 0 ;
+
+}
